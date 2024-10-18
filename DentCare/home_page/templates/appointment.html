@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Book an appointment{% endblock title %}
+
+{% block css_file %} <link rel="stylesheet" href="{% static "/css/appointment.css" %}" /> {% endblock css_file %}
+{% block content %}
+    <header>
+        <h1>Let us help you make your smile beautiful</h1>
+    </header>
+    <div class="portals">
+        <button id="app" onclick="location.href='{% url 'appointment_login' %}'"> Book your appointment </button>
+        <button id="admin" onclick="location.href='{% url 'appointment_admin' %}'"> Admin </button>
+    </div>
+{% endblock content %}

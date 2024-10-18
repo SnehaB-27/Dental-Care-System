@@ -1,0 +1,57 @@
+body{
+    background-image: url("/static/img/dentalbg.jpg");
+    height: 100vh;
+}
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #3498db;
+    color: #fff;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.portals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300px; /* Apply margin from the top */
+    position: relative;
+}
+
+#admin {
+    margin-top: 20px; /* Ensure some space between the two buttons */
+    padding: 10px 20px;
+    background-color: #25201f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#admin:hover {
+    background-color: #d32f2f;
+}
+
+#app {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#app:hover {
+    background-color: #388E3C;
+}

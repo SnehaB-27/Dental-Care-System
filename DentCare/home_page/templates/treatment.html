@@ -1,0 +1,352 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Treatments
+{% endblock %}
+
+{% block css_file %}
+    <link rel="stylesheet"  href="{% static "css/treatment.css" %}"  />
+{% endblock %}
+    
+
+{% block content %}
+    
+    <header>
+        <h1>Treatments we provide</h1>
+    </header>
+
+    <section class="treatments">
+        
+        <div class="t_list">
+
+            <div class="list">
+                <img src=" {% static "img/t2.png" %} ">
+                <h2>Dental Cleaning</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                    <div class='treatment-detail'>
+                        <h3>Dental Cleaning</h3>
+                        <p><strong>About:</strong> Dental cleaning is an essential preventive measure to maintain oral hygiene, remove harmful plaque and tartar build-up, and avoid tooth decay and gum diseases. Regular cleanings contribute to fresher breath and a brighter smile while keeping serious oral health problems at bay. It’s often recommended every six months.</p>
+                        <p><strong>Procedure:</strong> The dental cleaning procedure involves the following steps:</p>
+                        <ol>
+                            <li>Initial examination by the dentist to evaluate oral health.</li>
+                            <li>Ultrasonic scaling to remove larger deposits of tartar and plaque from the teeth surfaces.</li>
+                            <li>Manual scaling to clean smaller areas, especially near the gum line.</li>
+                            <li>Polishing the teeth with a prophylaxis paste to smoothen the enamel surface.</li>
+                            <li>Flossing between the teeth to remove debris in hard-to-reach areas.</li>
+                            <li>Rinsing the mouth to remove loose particles, followed by fluoride treatment.</li>
+                            <li>Final evaluation to ensure thorough cleaning and patient comfort.</li>
+                        </ol>
+                        <p><strong>Cost Estimation:</strong> 
+                            <span style='color: #ff6b6b; font-size: 1.3em;'>₹1,000 - ₹5,000</span> 
+                                for a complete dental cleaning (₹500 per tooth for scaling and polishing).
+                        </p>
+                        <p><strong>Time Estimation:</strong> 
+                            <span style='font-size: 0.9em;'>30 to 60 minutes</span>, depending on the severity of plaque and tartar build-up.
+                        </p>
+                    </div>">
+                    
+                </div>
+            </div>
+
+
+            <div class="list">
+                <img src=" {% static "img/t3.png" %} ">
+                <h2>Teeth Whitening</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Teeth Whitening</h3>
+                    <p><strong>About:</strong> Teeth whitening is a cosmetic procedure to lighten the color of teeth. It helps to remove stains and discoloration caused by food, drinks, smoking, or aging.</p>
+                    <p><strong>Procedure:</strong> The teeth whitening procedure involves the following steps:</p>
+                    <ol>
+                        <li>Initial dental examination to assess oral health and suitability for whitening.</li>
+                        <li>Application of a protective gel or shield on the gums.</li>
+                        <li>Application of a bleaching agent (usually hydrogen peroxide or carbamide peroxide) on the teeth.</li>
+                        <li>Activation of the whitening gel with a special light or laser.</li>
+                        <li>Rinsing and final inspection of results.</li>
+                        <li>Post-procedure care instructions for maintaining results.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹3,000 - ₹15,000</span> for a complete whitening session (₹1,500 per tooth for severe cases).
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>45 to 90 minutes</span>, depending on the extent of staining.
+                    </p>
+                </div>">
+            </div>
+            </div>
+
+
+            <div class="list">
+                <img src=" {% static "img/t4.png" %} ">
+                <h2>Tooth Extraction</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Tooth Extraction</h3>
+                    <p><strong>About:</strong> Tooth extraction is the removal of a tooth from its socket in the bone. This procedure is usually necessary when a tooth is damaged beyond repair due to decay or trauma.</p>
+                    <p><strong>Procedure:</strong> The tooth extraction procedure involves the following steps:</p>
+                    <ol>
+                        <li>Local anesthesia to numb the affected area.</li>
+                        <li>Loosening the tooth with a dental instrument called an elevator.</li>
+                        <li>Removing the tooth using forceps.</li>
+                        <li>Cleaning the socket to ensure no debris remains.</li>
+                        <li>Stitching the socket if necessary.</li>
+                        <li>Providing post-extraction care instructions.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹500 - ₹3,000</span> per tooth, depending on the complexity of the extraction.
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>20 to 45 minutes</span>, depending on the tooth's condition.
+                    </p>
+                </div>">
+            </div>            
+            </div>
+
+
+            <div class="list">
+                <img src=" {% static "img/t5.png" %} ">
+                <h2>Dental Fillings</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Dental Fillings</h3>
+                    <p><strong>About:</strong> Dental fillings are used to restore the function, integrity, and morphology of missing tooth structure resulting from cavities or trauma.</p>
+                    <p><strong>Procedure:</strong> The dental filling procedure involves the following steps:</p>
+                    <ol>
+                        <li>Local anesthesia to numb the affected area.</li>
+                        <li>Removing the decayed portion of the tooth using a drill or laser.</li>
+                        <li>Cleaning the cavity to prepare it for the filling material.</li>
+                        <li>Inserting the filling material (composite, amalgam, or gold).</li>
+                        <li>Shaping and polishing the filling to fit the tooth's bite.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹500 - ₹2,500</span> per tooth, depending on the material used.
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>30 to 45 minutes</span> per filling.
+                    </p>
+                </div>">
+            </div>
+            
+            </div>
+
+
+            <div class="list">
+                <img src=" {% static "img/t6.png" %} ">
+                <h2>Root Canal Therapy</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Root Canal Therapy</h3>
+                    <p><strong>About:</strong> Root canal therapy is a treatment used to repair and save a tooth that is badly decayed or infected. The procedure involves removing the damaged area, cleaning it, and then filling and sealing it.</p>
+                    <p><strong>Procedure:</strong> The root canal procedure involves the following steps:</p>
+                    <ol>
+                        <li>Local anesthesia to numb the tooth.</li>
+                        <li>Creating an opening in the tooth to access the pulp chamber.</li>
+                        <li>Removing the infected or damaged pulp.</li>
+                        <li>Cleaning and shaping the root canals.</li>
+                        <li>Filling the cleaned canals with a biocompatible material.</li>
+                        <li>Sealing the tooth with a crown or filling.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹3,000 - ₹8,000</span> per tooth, depending on the tooth and clinic.
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>60 to 90 minutes</span> over one or two sessions.
+                    </p>
+                </div>">
+            </div>            
+            </div>
+
+
+            <div class="list">
+                <img src=" {% static "img/t7.png" %} ">
+                <h2>Dental Crowns</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Dental Crowns</h3>
+                    <p><strong>About:</strong> Dental crowns are cap-like restorations placed over a damaged tooth to restore its shape, size, strength, and appearance. They are often used to cover a tooth that is severely decayed, fractured, or after a root canal treatment.</p>
+                    <p><strong>Procedure:</strong> The dental crown procedure involves the following steps:</p>
+                    <ol>
+                        <li>Initial examination and X-rays to assess the tooth's condition.</li>
+                        <li>Tooth preparation by removing a portion of the tooth to accommodate the crown.</li>
+                        <li>Taking impressions of the tooth to create a custom-fit crown.</li>
+                        <li>Temporary crown placement to protect the tooth while the permanent crown is made.</li>
+                        <li>Fitting and adjustment of the permanent crown once it is ready.</li>
+                        <li>Cementing the crown onto the prepared tooth.</li>
+                        <li>Final check to ensure proper fit and bite.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹5,000 - ₹20,000</span> 
+                            depending on the material used (metal, ceramic, or porcelain-fused-to-metal).
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>1 to 2 hours per visit</span>, with two visits required: one for preparation and another for the placement of the permanent crown.
+                    </p>
+                </div>">
+            </div>
+            
+
+            </div>
+
+
+            <div class="list">
+                <img src=" {% static "img/t8.png" %} ">
+                <h2>Dental Implants</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Dental Implants</h3>
+                    <p><strong>About:</strong> Dental implants are a permanent solution to replace missing teeth. The implant is a titanium post that acts as a replacement tooth root, supporting crowns, bridges, or dentures.</p>
+                    <p><strong>Procedure:</strong> The dental implant procedure involves the following steps:</p>
+                    <ol>
+                        <li>Initial consultation to evaluate jawbone structure.</li>
+                        <li>Surgical placement of the titanium implant into the jawbone.</li>
+                        <li>Healing period (3-6 months) for osseointegration.</li>
+                        <li>Attaching an abutment (a connector post) to the implant.</li>
+                        <li>Placement of a custom-made crown over the abutment.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹25,000 - ₹50,000</span> per implant, depending on the clinic and materials used.
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>Several months</span> for the full process, including healing time.
+                    </p>
+                </div>">
+            </div>            
+            </div>
+
+
+            <div class="list">
+                <img src="{% static "img/t12.jpg" %}"> <!-- Add an appropriate image -->
+                <h2>Oral Cancer Screening</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                    <div class='treatment-detail'>
+                        <h3>Oral Cancer Screening</h3>
+                        <p><strong>About:</strong> Oral cancer screening is an examination performed by a dentist to check for signs of cancer or precancerous conditions in the mouth.</p>
+                        <p><strong>Procedure:</strong> The screening procedure involves the following steps:</p>
+                        <ol>
+                            <li>Visual examination of the oral cavity for abnormalities.</li>
+                            <li>Palpation of the lymph nodes to check for swelling or lumps.</li>
+                            <li>Discussion of any concerning symptoms with the patient.</li>
+                            <li>If necessary, biopsies may be recommended for further testing.</li>
+                        </ol>
+                        <p><strong>Cost Estimation:</strong> 
+                            <span style='color: #ff6b6b; font-size: 1.3em;'>₹500 - ₹2,000</span> depending on the clinic.
+                        </p>
+                        <p><strong>Time Estimation:</strong> 
+                            <span style='font-size: 0.9em;'>15 to 30 minutes</span> for the examination.
+                        </p>
+                    </div>">
+                </div>
+            </div>
+            
+
+
+            <div class="list">
+                <img src=" {% static "img/t9.jpg" %} ">
+                <h2>Braces</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Braces (Orthodontic Treatment)</h3>
+                    <p><strong>About:</strong> Braces are used to correct misaligned teeth and bite issues. Orthodontic treatment helps improve the aesthetics and functionality of the teeth and jaws.</p>
+                    <p><strong>Procedure:</strong> The braces procedure involves the following steps:</p>
+                    <ol>
+                        <li>Initial consultation and X-rays to plan the treatment.</li>
+                        <li>Placement of brackets on the teeth using dental cement.</li>
+                        <li>Threading of archwire through the brackets to apply pressure for teeth movement.</li>
+                        <li>Regular adjustments every 4-6 weeks to tighten and move the teeth.</li>
+                        <li>Removal of braces after treatment completion, followed by a retainer.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹30,000 - ₹80,000</span> for a full treatment, depending on the type of braces.
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>12 to 24 months</span>, depending on the complexity of the case.
+                    </p>
+                </div>">
+            </div>            
+            </div>
+
+
+            <div class="list">
+                <img src=" {% static "img/t10.png" %} ">
+                <h2>Periodontal Treatment</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Periodontal Treatment</h3>
+                    <p><strong>About:</strong> Periodontal treatment focuses on managing and treating gum disease, which includes inflammation, infection, and damage to the soft tissues and bone supporting the teeth. It aims to restore gum health and prevent tooth loss.</p>
+                    <p><strong>Procedure:</strong> The periodontal treatment procedure involves the following steps:</p>
+                    <ol>
+                        <li>Initial examination and diagnosis of the severity of gum disease.</li>
+                        <li>Scaling and root planing to remove plaque and tartar from below the gumline.</li>
+                        <li>Antibiotic treatment or antimicrobial agents to control infection.</li>
+                        <li>Flap surgery to clean deeper pockets and reduce gum inflammation.</li>
+                        <li>Gum grafts if necessary to restore lost gum tissue.</li>
+                        <li>Regular follow-up appointments to monitor healing and prevent recurrence.</li>
+                        <li>Customized oral hygiene instructions to maintain gum health.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹5,000 - ₹20,000</span> 
+                            depending on the severity and type of treatment needed.
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>1 to 2 hours per session</span>, with multiple sessions required depending on the treatment plan.
+                    </p>
+                </div>">
+            </div>            
+            </div>
+
+
+            <div class="list">
+                <img src=" {% static "img/t11.webp" %} ">
+                <h2>Veneers</h2>
+                <div class="overlay">Read More</div>
+                <div class="details" data-info="
+                <div class='treatment-detail'>
+                    <h3>Veneers</h3>
+                    <p><strong>About:</strong> Veneers are thin, custom-made shells placed over the front surface of teeth to improve appearance. They are typically used to fix discolored, worn, chipped, or misaligned teeth.</p>
+                    <p><strong>Procedure:</strong> The veneer procedure involves the following steps:</p>
+                    <ol>
+                        <li>Initial consultation and selection of veneer color and shape.</li>
+                        <li>Preparation of the tooth surface by removing a thin layer of enamel.</li>
+                        <li>Taking an impression of the teeth for custom fabrication of the veneers.</li>
+                        <li>Bonding the veneers to the teeth using special dental cement.</li>
+                        <li>Final adjustments to ensure proper fit and aesthetics.</li>
+                    </ol>
+                    <p><strong>Cost Estimation:</strong> 
+                        <span style='color: #ff6b6b; font-size: 1.3em;'>₹8,000 - ₹15,000</span> per tooth, depending on the material used.
+                    </p>
+                    <p><strong>Time Estimation:</strong> 
+                        <span style='font-size: 0.9em;'>2 to 3 visits</span>, typically over a few weeks.
+                    </p>
+                </div>">
+                </div>            
+            </div>
+
+        </div>
+    </section>
+    <section class="treatment_detail">
+        <p>See treatment details here</p>
+    </section>
+
+    
+    <script>
+        document.querySelectorAll('.list').forEach(function(item) {
+            item.addEventListener('click', function() {
+                var info = this.querySelector('.details').getAttribute('data-info');
+                document.querySelector('.treatment_detail').innerHTML = info;
+            });
+        });
+    </script>
+    
+{% endblock %}
+

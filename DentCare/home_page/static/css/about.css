@@ -1,0 +1,233 @@
+/* Basic styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #3498db;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 40px;
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+
+/* Certifications */
+.certifications {
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.certification-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.certification-images a {
+    display: inline-block;
+}
+
+.certification-images img {
+    width: 350px; /* Increased size */
+    height: auto;
+    border-radius: 8px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.certification-images img:hover {
+    transform: scale(1.1); /* Slightly larger on hover */
+}
+
+/* Lightbox styles */
+.lightbox {
+    position: relative;
+}
+
+.lightbox::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.lightbox:hover::after {
+    opacity: 1;
+}
+
+.lightbox img {
+    position: relative;
+    z-index: 2;
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lightbox-content {
+    position: relative;
+}
+
+.lightbox-content img {
+    max-width: 80%; /* Adjusted for larger view */
+    max-height: 80%;
+    border-radius: 8px;
+}
+/* Dentist Profiles */
+.dentist-profiles {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.dentist-profiles h2 {
+    margin-bottom: 20px;
+    font-size: 35px;
+    color: #2c6eb0;
+    font-weight: bold;
+}
+
+.profile-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.profile-card {
+    width: 230px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.profile-card:hover img {
+    transform: scale(1.05);
+}
+
+.profile-card h3 {
+    margin: 12px 0;
+    font-size: 20px;
+    color: #3498db;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.profile-card p {
+    color: #666;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.profile-card:hover h3 {
+    color: #2980b9;
+}
+
+.profile-card:hover p {
+    color: #2c3e50;
+}
+
+
+
+.profile-cards{
+    display :flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+
+}
+
+.profile-card{
+    padding: 10px;
+    margin: 20px;
+}
+
+
+
+
+/* Hospital Photos */
+.hospital-photos {
+    text-align: center;
+    margin: 40px 0;
+    display : block;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hospital-photos h2 {
+    margin-bottom: 20px;
+}
+
+.hospital-images img {
+    width: 500px; 
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+

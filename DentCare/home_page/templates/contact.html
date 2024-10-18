@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock title %}
+{% block css_file %} <link rel="stylesheet" href="{% static "/css/contact.css" %}" /> {% endblock css_file %}
+{% block content %}
+    <header>
+        <h1> Feel free to contact us </h1>
+    </header>
+    <section class="cont">
+        <form method="post" action="/contact">
+            {% csrf_token %}
+            <h2>Contact Us</h2>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="username pls" required>
+            <label for="msg">Message</label>
+            <textarea name="msg" rows="7" cols="32" id="msg" placeholder="Type here.." required></textarea>
+            <button id="c1" type='submit'> submit </button>
+        </form>
+
+        <div class="contact_details">
+           <p> Cell no:022-9204106327/022-5063071451 </p>
+           <p>Address: Bright Smile Dental Hospital,
+            near 456 Sunset Boulevard
+            Andheri West
+            Mumbai, Maharashtra 400058
+            India </p>
+        </div>
+    </section>
+{% endblock content %}

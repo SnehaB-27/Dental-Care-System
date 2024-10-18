@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    About us
+{% endblock %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static "css/about.css" %}"  />
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <section class="certifications">
+        <h2>Certifications</h2>
+        <div class="certification-images">
+            <img src="{% static 'img/cert1.png' %}" alt="Certification 1">
+            <img src="{% static 'img/cert2.png' %}" alt="Certification 2">
+            <img src="{% static 'img/cert3.png' %}" alt="Certification 3">
+        </div>
+    </section>
+    <section class="dentist-profiles">
+        <h2>Meet Our Dentists</h2>
+        <div class="profile-cards">
+            
+            <div class="profile-card">
+                <img src="{% static 'img/dr1.jpg' %}" alt="Doctor 1">
+                <h3>Dr. Jane Smith</h3>
+                <p>Specialist in Orthodontics</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr2.jpg' %}" alt="Doctor 2">
+                <h3>Dr. John Doe</h3>
+                <p>Cosmetic Dentistry</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr3.jpg' %}" alt="Doctor 3">
+                <h3>Dr. Emily Davis</h3>
+                <p>General Dentist</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr4.jpg' %}" alt="Doctor 4">
+                <h3>Dr. Michael Brown</h3>
+                <p>Periodontist</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr5.jpg' %}" alt="Doctor 5">
+                <h3>Dr. Sarah Wilson</h3>
+                <p>Endodontist</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr6.jpg' %}" alt="Doctor 6">
+                <h3>Dr. David Lee</h3>
+                <p>Oral Surgeon</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr7.jpg' %}" alt="Doctor 7">
+                <h3>Dr. Laura Martinez</h3>
+                <p>Pediatric Dentist</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr8.jpg' %}" alt="Doctor 8">
+                <h3>Dr. Robert Wilson</h3>
+                <p>Implant Specialist</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr9.webp' %}" alt="Doctor 9">
+                <h3>Dr. Linda Thomas</h3>
+                <p>Geriatric Dentist</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr10.jpg' %}" alt="Doctor 10">
+                <h3>Dr. Kevin Anderson</h3>
+                <p>Prosthodontist</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr11.png' %}" alt="Doctor 11">
+                <h3>Dr. Michelle Taylor</h3>
+                <p>Aesthetic Dentist</p>
+            </div>
+            <div class="profile-card">
+                <img src="{% static 'img/dr12.png' %}" alt="Doctor 12">
+                <h3>Dr. James White</h3>
+                <p>Restorative Dentist</p>
+            </div>
+        </div>
+    </section>
+    <section class="hospital-photos">
+        <h2>Our Dental Hospital</h2>
+        <div class="hospital-images">
+            <img src="{% static 'img/hos4.jpg' %}" >
+            <img src="{% static 'img/hos2.jpg' %}" >
+            <img src="{% static 'img/hos3.jpeg' %}" >
+            <img src="{% static 'img/hos1.jpg' %}"  >
+            <img src="{% static 'img/hos5.jpeg' %}"  >
+            <img src="{% static 'img/hos6.jpg' %}"  >
+            <img src="{% static 'img/hos7.jpg' %}"  >
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+
+

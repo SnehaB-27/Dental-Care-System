@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #3498db;
+    color: #fff;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+
+
+.t_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 150px  auto;
+    width: 80%; 
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin: 50px;
+    padding: 20px;
+    width: 230px;
+    height: 100px;
+    box-shadow:0px 0px 10px 10px rgba(0, 0, 0,0.1) ;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+
+.overlay {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: top 0.3s ease; 
+}
+
+/* Slide the overlay up on hover, but only for the hovered list item */
+.list:hover .overlay {
+    top: 0;
+    cursor: pointer;
+}
+
+.list:hover{
+    transform: scale(1.1);
+    transition: all 500ms ease;
+}
+
+.list h2{
+    margin-left: 10px;
+}
+
+.list img{
+    width: 100px;
+    height: 100px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ensure that the treatment-detail section is centered and has a 70% width */
+.treatment_detail {
+    width: 70%;
+    margin: 50px auto; /* Centers the content */
+    background-color: #f9f9f9; /* Light background for better readability */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    font-family: 'Arial', sans-serif; /* Sets the font */
+    line-height: 1.6; /* Enhances readability */
+    text-align: left; /* Text alignment */
+}
+
+/* Style for headings */
+.treatment_detail h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007BFF; /* Highlight heading color */
+    margin-bottom: 20px;
+}
+
+/* Styling for About, Procedure, Cost, and Time */
+.treatment_detail p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Make the About description stand out */
+.treatment_detail p:first-of-type {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Procedure steps as an ordered list */
+.treatment_detail ol {
+    padding-left: 20px;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* Styling for ordered list items */
+.treatment_detail ol li {
+    margin-bottom: 10px;
+}
+
+/* Bold emphasis for section titles */
+.treatment_detail strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+    .treatment_detail {
+        width: 90%; /* Reduce width on smaller screens */
+        padding: 20px;
+    }
+
+    .treatment_detail h3 {
+        font-size: 1.8rem;
+    }
+
+    .treatment_detail p {
+        font-size: 1.1rem;
+    }
+}

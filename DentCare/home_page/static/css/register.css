@@ -1,0 +1,108 @@
+/* home_page/static/css/registration.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure the container is vertically centered */
+}
+
+.registration-container {
+    margin-top: 300px ;
+    width: 400px; /* Set a fixed width */
+    padding: 20px;
+    background: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.registration-container h2 {
+    text-align: center;
+    color: #333; /* Darker text for readability */
+    margin-bottom: 15px; /* Slightly reduced margin */
+    font-size: 24px; /* Increased font size */
+}
+
+.input-group {
+    margin-bottom: 15px; /* Consistent spacing */
+}
+
+.registration-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600; /* Bolder labels */
+    color: #555;
+}
+
+.registration-container input {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Consistent font size */
+    box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+.registration-container input:focus {
+    border: 1px solid #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+.registration-container button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff; /* Blue background for button */
+    color: #ffffff; /* White text for contrast */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Consistent font size */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.registration-container button:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* Error messages styling */
+.error-messages {
+    margin-top: 10px; /* Smaller margin */
+    background: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Red border */
+    color: #721c24; /* Dark red text */
+    padding: 10px; /* Padding for error messages */
+    border-radius: 4px; /* Rounded corners */
+    font-weight: 500; /* Semi-bold text */
+    animation: fadeIn 0.5s ease-in; /* Fade-in animation */
+}
+
+.error {
+    margin: 5px 0; /* Consistent margin for error items */
+}
+
+/* Fade-in animation for error messages */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+p {
+    text-align: center;
+    margin-top: 10px; /* Consistent spacing */
+    color: #555; /* Subtle color for text */
+}
+
+p a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+    font-weight: bold; /* Bold links */
+}
+
+p a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

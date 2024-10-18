@@ -1,0 +1,310 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block title %}Book Appointment{% endblock title %}
+
+{% block css_file %}
+<link rel="stylesheet" href="{% static 'css/book_appointment.css' %}">
+<style>
+    .appointment-container {
+        max-width: 1300px; /* Adjust this value as needed */
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Add some padding */
+    }
+
+    .input-group input, .input-group select {
+        width: 100%; /* Full width */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box; /* Ensure padding doesn't affect total width */
+    }
+
+    .book-btn, #confirm-payment {
+        width: 100%; /* Full width for buttons */
+        padding: 10px 0; /* Vertical padding for buttons */
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .book-btn:hover, #confirm-payment:hover {
+        background-color: #0056b3;
+    }
+
+    .previous-appointments {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 50px; /* Adjusted margin */
+        background-color: #f9f9f9;
+    }
+
+    .payment-section {
+        display: none;
+        margin-top: 50px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f5f5f5;
+    }
+
+</style>
+{% endblock css_file %}
+
+{% block content %}
+<div class="appointment-container">
+    <h1>Book Your Appointment</h1>
+
+    <div class="appointment-content">
+        <!-- Appointment Form -->
+        <div class="form-section">
+            <form method="POST" action="{% url 'book_appointment' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="date">Select Date</label>
+                    <input type="date" id="date" name="appointment_date" required>
+                </div>
+                <div class="input-group">
+                    <label for="slot">Select Slot</label>
+                    <select id="slot" name="appointment_slot" required>
+                    <option value="">Select a slot</option>                        <!-- Slots will be dynamically populated here -->
+                    </select>
+                </div>
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p> <!-- Display error message if exists -->
+                {% endif %}
+                <button type="submit" class="book-btn">Schedule Appointment</button>
+            </form>
+        </div>
+
+        <!-- Previous Appointments Section -->
+        <div class="previous-appointments">
+            <h2>Your Previous Appointments</h2>
+            {% if appointments %}
+                <ul>
+                    {% for appointment in appointments %}
+                        <li>
+                            <strong>Date:</strong> {{ appointment.date }} <br>
+                            <strong>Slot:</strong> {{ appointment.slot }} <br>
+                            <strong>Report:</strong>
+                            {% if appointment.report %}
+                                <a href="{{ appointment.report.url }}" target="_blank">View Report</a>
+                            {% else %}
+                                No Report Available
+                            {% endif %}
+                            <br>
+                            <strong>Bill:</strong> ₹{{ appointment.bill }} <br>
+                            {% if appointment.bill == 0 %}
+                                <span style="color: green;">No Payment Required</span>
+                            {% elif appointment.paid %}
+                                <span style="color: green;">Paid</span>
+                            {% else %}
+                                <button class="pay-btn" data-bill="{{ appointment.bill }}" data-appointment="{{ appointment.id }}">Pay Now</button>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No previous appointments found.</p>
+            {% endif %}
+        </div>
+
+        <!-- Payment Section (Hidden initially, will show after Pay button clicked) -->
+        <div id="payment-section" class="payment-section">
+            <h2>Payment Options</h2>
+            <strong>Total Amount: ₹<span id="bill-amount"></span></strong>
+
+            <div class="payment-method">
+                <label for="payment-method">Choose Payment Method:</label>
+                <select id="payment-method" required>
+                    <option value="card">Card</option>
+                    <option value="upi">UPI</option>
+                </select>
+            </div>
+
+            <!-- Card Payment Input -->
+            <div id="card-input" class="card-input">
+                <div class="input-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+                    <p class="error-message" id="card-error"></p>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-cvc">CVC</label>
+                    <input type="text" id="card-cvc" placeholder="CVC" maxlength="3" required>
+                    <p class="error-message" id="cvc-error"></p>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-name">Name on Card</label>
+                    <input type="text" id="card-name" placeholder="Name" required>
+                </div>
+            </div>
+
+            <!-- UPI Payment Input -->
+            <div id="upi-input" class="upi-input">
+                <div class="input-group">
+                    <label for="upi-id">UPI ID</label>
+                    <input type="text" id="upi-id" placeholder="yourname@bank" required>
+                    <p class="error-message" id="upi-error"></p>
+                </div>
+            </div>
+
+            <button id="confirm-payment" data-appointment-id="">Pay</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for handling payment options, validation, and interaction -->
+<script>
+
+    let today = new Date();
+    today.setDate(today.getDate() + 1);
+
+    let yyyy = today.getFullYear();
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let dd = String(today.getDate()).padStart(2, '0');
+
+    let minDate = `${yyyy}-${mm}-${dd}`;
+    document.getElementById('date').setAttribute('min', minDate);
+
+    // Handle dynamic fetching of available slots based on the selected date
+    document.getElementById('date').addEventListener('change', function() {
+        const selectedDate = this.value;
+        const slotDropdown = document.getElementById('slot');
+
+        // Clear the slot dropdown before updating
+        slotDropdown.innerHTML = '';
+
+        // Fetch available slots from the backend for the selected date
+        fetch(`/fetch_slots?date=${selectedDate}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.slots.length > 0) {
+                    // Populate the dropdown with available slots
+                    data.slots.forEach(slot => {
+                        const option = document.createElement('option');
+                        option.value = slot.section;
+                        option.textContent = `${slot.section.charAt(0).toUpperCase() + slot.section.slice(1)} (${slot.available_slots} slots remaining)`;
+                        slotDropdown.appendChild(option);
+                    });
+                } else {
+                    // If no slots are available for this date
+                    const option = document.createElement('option');
+                    option.value = '';
+                    option.textContent = 'No slots available for this date';
+                    slotDropdown.appendChild(option);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching slots:', error);
+                const option = document.createElement('option');
+                option.value = '';
+                option.textContent = 'Error loading slots';
+                slotDropdown.appendChild(option);
+            });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const payButtons = document.querySelectorAll('.pay-btn');
+        const paymentSection = document.getElementById('payment-section');
+        const billAmountElement = document.getElementById('bill-amount');
+        const paymentMethodElement = document.getElementById('payment-method');
+        const cardInput = document.getElementById('card-input');
+        const upiInput = document.getElementById('upi-input');
+        const confirmPaymentBtn = document.getElementById('confirm-payment');
+
+        // Handle pay button click
+        payButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const billAmount = this.getAttribute('data-bill');
+                const appointmentId = this.getAttribute('data-appointment');
+                billAmountElement.textContent = billAmount;
+                confirmPaymentBtn.setAttribute('data-appointment-id', appointmentId);
+                paymentSection.style.display = 'block';
+            });
+        });
+
+        // Handle payment method change
+        paymentMethodElement.addEventListener('change', function() {
+            if (this.value === 'card') {
+                cardInput.style.display = 'block';
+                upiInput.style.display = 'none';
+            } else if (this.value === 'upi') {
+                upiInput.style.display = 'block';
+                cardInput.style.display = 'none';
+            }
+        });
+
+        // Handle payment confirmation with validation
+        confirmPaymentBtn.addEventListener('click', function() {
+            const paymentMethod = paymentMethodElement.value;
+            let isValid = true;
+
+            if (paymentMethod === 'card') {
+                const cardNumber = document.getElementById('card-number');
+                const cardCVC = document.getElementById('card-cvc');
+                const cardName = document.getElementById('card-name');
+                const cardError = document.getElementById('card-error');
+                const cvcError = document.getElementById('cvc-error');
+
+                // Clear previous errors
+                cardError.textContent = '';
+                cvcError.textContent = '';
+
+                // Validate card number
+                if (!/^\d{4} \d{4} \d{4} \d{4}$/.test(cardNumber.value)) {
+                    cardError.textContent = 'Invalid card number. Must be in XXXX XXXX XXXX XXXX format.';
+                    isValid = false;
+                }
+
+                // Validate CVC
+                if (!/^\d{3}$/.test(cardCVC.value)) {
+                    cvcError.textContent = 'Invalid CVC. Must be 3 digits.';
+                    isValid = false;
+                }
+
+                // Validate name on card
+                if (cardName.value.trim() === '') {
+                    isValid = false;
+                }
+            } else if (paymentMethod === 'upi') {
+                const upiId = document.getElementById('upi-id');
+                const upiError = document.getElementById('upi-error');
+
+                // Clear previous error
+                upiError.textContent = '';
+
+                // Validate UPI ID
+                if (!/^\w+@\w+$/.test(upiId.value)) {
+                    upiError.textContent = 'Invalid UPI ID format.';
+                    isValid = false;
+                }
+            }
+
+            if (isValid) {
+                const appointmentId = this.getAttribute('data-appointment-id');
+
+                // Mark the appointment as paid and hide the payment section
+                const payButton = document.querySelector(`.pay-btn[data-appointment="${appointmentId}"]`);
+                payButton.textContent = 'Paid';
+                payButton.disabled = true;
+                paymentSection.style.display = 'none';
+            }
+        });
+    });
+
+
+
+</script>
+{% endblock content %}

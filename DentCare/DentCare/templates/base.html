@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "main/app.css" %}" />
+
+    <title>{% block title %}{% endblock %}</title>
+    
+   {% block css_file %}
+    
+   {% endblock %}
+
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="location.href='/'">Home</button>
+        <button onclick="location.href= '/about'">About</button>
+        <div class="dropdown">
+            <button onclick="location.href='/treatment'" class="dropbtn">Treatment</button>
+            <div class="dropdown-content">
+                <a href="#">Dental Cleaning</a>
+                <a href="#">Teeth Whitening</a>
+                <a href="#">Tooth Extraction</a>
+                <a href="#">Dental Fillings</a>
+                <a href="#">Root Canal Therapy</a>
+                <a href="#">Dental Crowns</a>
+                <a href="#">Dental Implants</a>
+                <a href="#">Oral Cancer Screening</a>
+                <a href="#">Braces</a>
+                <a href="#">Periodontal Treatment</a>
+                <a href="#">Veneers</a>
+            </div>
+        </div>
+        
+        <button onclick="location.href='/appointment'">Appointment</button>
+        <button onclick="location.href='/contact'">Contact us</button>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

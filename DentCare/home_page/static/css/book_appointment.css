@@ -1,0 +1,110 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef;
+    margin-top: 150px;
+    padding: 0;
+    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+.appointment-container {
+    width: 100%; /* Full width up to max-width */
+    max-width: 900px; /* Limit maximum width */
+    padding: 20px; /* Inner padding */
+    background: #ffffff; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid #ddd; /* Light border */
+    margin-top: 150px; /* Space from top */
+}
+
+.appointment-content {
+    display: flex; /* Flexbox for side-by-side layout */
+    justify-content: space-between; /* Space between the two sections */
+}
+
+.form-section {
+    width: 48%; /* Width for the appointment form */
+    margin-top: 100px;
+}
+
+
+.appointment-container h1 {
+    color: #333; /* Darker text color */
+    margin-bottom: 20px; /* Space below heading */
+    text-align:center;
+}
+
+.input-group {
+    margin-bottom: 15px; /* Space between input groups */
+}
+
+.input-group label {
+    display: block; /* Block level for labels */
+    margin-bottom: 5px; /* Space below label */
+    color: #555; /* Slightly lighter text color */
+}
+
+.input-group input,
+.input-group select {
+    width: 100%; /* Full width inputs */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners for inputs */
+    font-size: 16px; /* Font size */
+    transition: border 0.3s; /* Smooth transition for focus */
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border: 1px solid #007bff; /* Blue border on focus */
+}
+
+.book-btn {
+    width: 100%; /* Full width button */
+    padding: 10px; /* Inner padding */
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient background */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background 0.3s; /* Smooth transition for hover */
+}
+
+.book-btn:hover {
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Darker gradient on hover */
+    color: #e9ecef;
+}
+
+.previous-appointments h2 {
+    color: #333; /* Darker text color */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.previous-appointments ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.previous-appointments li {
+    margin-bottom: 15px; /* Space between list items */
+    border-bottom: 1px solid #ddd; /* Divider between appointments */
+    padding-bottom: 10px; /* Space below each item */
+}
+
+.previous-appointments strong {
+    color: #555; /* Lighter color for strong text */
+}
+
+.previous-appointments a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.previous-appointments a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+

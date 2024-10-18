@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dr_dashboard.css' %}">
+    <title>Doctor Dashboard</title>
+</head>
+<body>
+    <h2>Doctor Dashboard</h2>
+    <h3>Appointments</h3>
+
+    <!-- Buttons for functionality -->
+    <div class="button-container">
+        <button onclick="location.href='{% url 'view_my_appointments' %}'">Only slots</button>
+        
+        <form method="GET" action="{% url 'filter_appointments' %}">
+            <label for="filter_date">Filter by Date:</label>
+            <input type="date" id="filter_date" name="filter_date" required>
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Date</th>
+                <th>Slot</th>
+                <th>Report</th>
+                <th>Bill</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>
+                    <!-- Ensure patient's name is displayed correctly for both filtered and default appointments -->
+                    {% if appointment.username %}
+                        {{ appointment.username }}
+                    {% else %}
+                        {{ appointment.user.username }}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ appointment.date }}  <!-- Display date for both filtered and default view -->
+                </td>
+                <td>
+                    {% if not view_my_appointments %}
+                        {{ appointment.slot }}  <!-- Display slot only for the default view -->
+                    {% endif %}
+                </td>
+                <td>
+                    {% if not view_my_appointments %}
+                        {% if appointment.report %}
+                            <a href="{{ appointment.report.url }}" target="_blank">Download Report</a>
+                        {% else %}
+                            No report yet
+                        {% endif %}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if not view_my_appointments %}
+                        ₹{{ appointment.bill }} 
+                    {% endif %}
+                </td>
+                <td>
+                    {% if not view_my_appointments %}
+                        <a href="{% url 'submit_report' appointment.id %}">Submit Report</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No appointments found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

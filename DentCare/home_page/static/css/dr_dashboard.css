@@ -1,0 +1,112 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+h3 {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Action Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Logout Link */
+.logout {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #007bff;
+}
+
+.logout:hover {
+    text-decoration: underline;
+}
+
+
+
+
+/* Container for buttons and form */
+.button-container {
+    display: flex;                  /* Use flexbox for layout */
+    align-items: center;           /* Center items vertically */
+    justify-content: flex-start;   /* Align items to the left */
+    gap: 15px;                     /* Space between elements */
+    margin-bottom: 20px;           /* Space below the container */
+}
+
+/* Button styles */
+.button-container button {
+    background-color: #4CAF50;     /* Green background */
+    color: white;                   /* White text */
+    border: none;                   /* Remove border */
+    border-radius: 5px;            /* Rounded corners */
+    padding: 10px 15px;            /* Padding for button */
+    cursor: pointer;                /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+    font-size: 16px;               /* Font size */
+}
+
+/* Button hover effect */
+.button-container button:hover {
+    background-color: #45a049;      /* Darker green on hover */
+}
+
+/* Form styles */
+.button-container form {
+    display: flex;                  /* Use flexbox for form layout */
+    align-items: center;           /* Center items vertically */
+    gap: 5px;                      /* Space between elements in form */
+}
+
+/* Input styles */
+.button-container input[type="date"] {
+    padding: 10px;                 /* Padding for input */
+    border: 1px solid #ccc;        /* Light gray border */
+    border-radius: 5px;            /* Rounded corners */
+    font-size: 16px;               /* Font size */
+}
+
+/* Input focus effect */
+.button-container input[type="date"]:focus {
+    border-color: #4CAF50;         /* Green border on focus */
+    outline: none;                 /* Remove outline */
+}
